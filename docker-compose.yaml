@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: weather
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    env_file:
+      - .env

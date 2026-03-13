@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group = 'org.aneg'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.11.4')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.springframework:spring-test:6.2.6'
+    testImplementation 'com.h2database:h2:2.2.224'
+    testImplementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    testImplementation 'org.glassfish:jakarta.el:4.0.2'
+    testImplementation 'org.mockito:mockito-core:5.18.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.18.0'
+
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.42'
+    annotationProcessor 'org.projectlombok:lombok:1.18.42'
+    testCompileOnly 'org.projectlombok:lombok:1.18.42'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.42'
+
+    implementation 'org.springframework:spring-webmvc:7.0.3'
+    implementation 'org.springframework:spring-orm:7.0.3'
+
+    implementation 'org.thymeleaf:thymeleaf-spring6:3.1.2.RELEASE'
+
+    implementation 'org.hibernate.orm:hibernate-core:7.2.4.Final'
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+
+    implementation 'org.postgresql:postgresql:42.7.8'
+
+    implementation 'org.flywaydb:flyway-core:12.0.0'
+    runtimeOnly 'org.flywaydb:flyway-database-postgresql:12.0.0'
+
+    implementation 'org.springframework.security:spring-security-crypto:7.0.2'
+
+    implementation 'ch.qos.logback:logback-classic:1.5.18'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.1'
+}
+
+test {
+    useJUnitPlatform()
+}
